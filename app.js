@@ -1,11 +1,16 @@
 const express = require('express')
 
-// const database = require('./database')
+const database = require('./database')
+const todoApi = require('./api/todo')
 
 const app = express()
 
-const PORT = process.env.PORT || 8080
+app.use(express.json())
+app.use('/api/todo', todoApi)
 
+const PORT = process.env.PORT || 8080
 app.listen(PORT, async () => {
-    console.log(`Server is running in port ${PORT}`)
+  await database.sync()
+
+  console.log(`Server is running in port ${PORT}`)
 })
