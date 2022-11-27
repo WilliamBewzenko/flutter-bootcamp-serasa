@@ -1,0 +1,27 @@
+{
+  "name": "@serasa/flutter-bootcamp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WilliamBewzenko/flutter-bootcamp-serasa.git"
+  },
+  "author": "William Bewzenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WilliamBewzenko/flutter-bootcamp-serasa/issues"
+  },
+  "homepage": "https://github.com/WilliamBewzenko/flutter-bootcamp-serasa#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "sequelize": "^6.25.8",
+    "sqlite3": "^5.1.2"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}
