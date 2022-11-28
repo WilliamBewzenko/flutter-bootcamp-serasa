@@ -1,7 +1,7 @@
 
-function handleOk(res, data) {
+function handleOk(res, data, statusCode) {
   res.json({
-    status: 200,
+    status: statusCode || 200,
     data,
   })
 }

@@ -26,15 +26,14 @@ router.get('/', async (req, res) => {
   }
 })
 
-router.get('/:id', validate(findOrDeleteSchema), async (req, res) => {
+router.delete('/', async (req, res) => {
   try {
-    const task = await Task.findByPk(req.params.id)
+    await Task.destroy({
+      where: {},
+      truncate: true
+    })
 
-    if (task == null) {
-      return taskNotFound(res)
-    }
-
-    handleOk(res, task)
+    handleOk(res, { deleted: true })
   } catch (error) {
     handleError(res, error)
   }
@@ -52,6 +51,20 @@ router.post('/', validate(createSchema), async (req, res) => {
       done: body.done,
       tags: body.tags
     })
+
+    handleOk(res, task, 201)
+  } catch (error) {
+    handleError(res, error)
+  }
+})
+
+router.get('/:id', validate(findOrDeleteSchema), async (req, res) => {
+  try {
+    const task = await Task.findByPk(req.params.id)
+
+    if (task == null) {
+      return taskNotFound(res)
+    }
 
     handleOk(res, task)
   } catch (error) {
@@ -88,7 +101,7 @@ router.delete('/:id', validate(findOrDeleteSchema), async (req, res) => {
   try {
     await Task.destroy({ where: { id: req.params.id } })
 
-    handleOk(res, { delete: true })
+    handleOk(res, { deleted: true })
   } catch (error) {
     handleError(res, error)
   }
