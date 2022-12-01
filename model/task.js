@@ -20,10 +20,14 @@ const Task = database.define('task', {
     type: DataTypes.DATEONLY
   },
   priority: {
+    type: DataTypes.ENUM('high', 'medium', 'low'),
+    allowNull: true
+  },
+  archived: {
     type: DataTypes.BOOLEAN,
     defaultValue: false
   },
-  done: {
+  finished: {
     type: DataTypes.BOOLEAN,
     defaultValue: false
   },

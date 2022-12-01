@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"title\": \"Hello World\",\n    \"description\": \"I wanna be a good manager.\",\n    \"deadline\": \"2023-01-01\",\n    \"priority\": true,\n    \"done\": false,\n    \"tags\": [\"profissional\", \"newyear\"]\n}",
+					"raw": "{\n    \"title\": \"Hello World\",\n    \"description\": \"I wanna be a good manager.\",\n    \"deadline\": \"2023-01-01\",\n    \"priority\": \"high\",\n    \"finished\": true,\n    \"archived\": false,\n    \"tags\": [\"profissional\", \"newyear\"]\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -40,7 +40,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"title\": \"Hello World\",\n    \"description\": \"I wanna be a good manager.\",\n    \"deadline\": \"2023-01-02\",\n    \"priority\": true,\n    \"done\": true,\n    \"tags\": [\"profissional\", \"#newyear\"]\n}",
+					"raw": "{\n    \"title\": \"Hello World\",\n    \"description\": \"I wanna be a good manager.\",\n    \"deadline\": \"2023-01-02\",\n    \n    \"finished\": null,\n    \"archived\": false,\n    \"tags\": [\"profissional\", \"#newyear\"]\n}",
 					"options": {
 						"raw": {
 							"language": "json"

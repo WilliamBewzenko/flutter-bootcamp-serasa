@@ -1,11 +1,12 @@
 const yup = require('yup')
 
 const taskSchema = yup.object({
-  title: yup.string().max(280),
+  title: yup.string().max(280).nullable(),
   description: yup.string().required(),
-  deadline: yup.date(),
-  priority: yup.bool(),
-  done: yup.bool(),
+  deadline: yup.date().nullable(),
+  priority: yup.mixed().oneOf(['high', 'medium', 'low', null]).nullable(),
+  finished: yup.bool().nullable(),
+  archived: yup.bool().nullable(),
   tags: yup.array().of(yup.string())
 })
 

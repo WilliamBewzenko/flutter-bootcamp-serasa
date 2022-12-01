@@ -44,11 +44,12 @@ router.post('/', validate(createSchema), async (req, res) => {
     const body = req.body
 
     const task = await Task.create({
-      title: body.title,
+      title: body.title ?? null,
       description: body.description,
-      deadline: body.deadline,
-      priority: body.priority,
-      done: body.done,
+      deadline: body.deadline ?? null,
+      priority: body.priority ?? null,
+      finished: body.finished ?? null,
+      archived: body.archived ?? null,
       tags: body.tags
     })
 
@@ -82,11 +83,12 @@ router.post('/:id', validate(updateSchema), async (req, res) => {
 
     const body = req.body
 
-    task.title = body.title
+    task.title = body.title ?? null
     task.description = body.description
-    task.deadline = body.deadline
-    task.priority = body.priority
-    task.done = body.done
+    task.deadline = body.deadline ?? null
+    task.priority = body.priority ?? null
+    task.finished = body.finished ?? null
+    task.archived = body.archived ?? null
     task.tags = body.tags
 
     const newTask = await task.save()
